@@ -1,0 +1,69 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <title>跳转界面</title>
+    <style>
+        .tab{
+            margin-top: 30px;
+            background-color:WhiteSmoke;
+        }
+        .bar{
+            margin-top: 30px;
+            background-color: white;
+        }
+        .text{
+            font-size: 28px;
+            color:#008b00;
+            padding-left: 10px;
+        }
+        .avatar{
+            width: 40px;;
+            height: 40px;;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="bar">
+        <img th:src="@{http://p9f10ih0f.bkt.clouddn.com/18-9-20/58126384.jpg}" class="img-circle avatar">
+        <span class="text">在线工具</span>
+    </div>
+</div>
+<div class="container">
+    <ul class="nav nav-tabs tab">
+        <li role="presentation"><a style="color:#008B00" href="#">所有</a></li>
+        <li role="presentation" class="active" ><a style="color:#008B00" href="#">开发类</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">站长类</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">极客类</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">其他</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">HR</a></li>
+        <li role="presentation"><a style="color:#7B68EE" href="#">码农文库</a></li>
+        <li role="presentation"><a style="color:#FF4040" href="#">奇淫巧技</a></li>
+        <li role="presentation"><a style="color:#1E90FF" href="#">软件推荐</a></li>
+        <li role="presentation"><a href="#">网址导航</a></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img th:src="@{http://p9f10ih0f.bkt.clouddn.com/18-9-20/84888576.jpg}">
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail" style="padding-top: 20px;margin-top: 15px;text-align: center">
+                <img th:src="${info.avatar}" style="width: 100px;height: 100px;text-align: center">
+                <p th:text="${info.name}" style=";font-size: 20px;font-weight:bold;text-align: center"></p>
+                <p th:text="${info.kind}" style="text-align: center"></p>
+                <p th:text="${info.introduce}" style="font-size: 15px;text-align: center"></p>
+                <p th:text="${info.url}" style="font-size: 15px;color: #CFCFCF;text-align: center"></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img th:src="@{http://p9f10ih0f.bkt.clouddn.com/18-9-20/19247891.jpg}">
+        </div>
+    </div>
+</div>
+</body>
+</html>

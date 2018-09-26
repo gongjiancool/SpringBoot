@@ -1,0 +1,123 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <title>在线工具—程序员</title>
+    <style>
+        .top_show{
+            background-color: black;
+            height:40px;
+            line-height:40px;
+            width:100%;
+            top:0;
+        }
+        .btn{
+            /*margin-top: 6px;*/
+            width:90px;
+            height:30px;
+            color: white;
+            background-color:transparent;
+            border: 1px solid black;
+            text-decoration: none;
+        }
+        .btn1{
+            /*margin-top: 6px;*/
+            width:90px;
+            height:35px;
+            color: black;
+            background-color:WhiteSmoke;
+            border: 1px solid black;
+            text-decoration: none;
+        }
+        .tab{
+            margin-top: 10px;
+            background-color:WhiteSmoke;
+        }
+        .avatar {
+            width: 35px;
+            height: 35px;
+        }
+        .text{
+            font-size: 28px;
+            color:#008b00;
+            padding-left: 10px;
+        }
+        .search{
+            font-size: 20px;
+        }
+        .bar{
+            margin-top: 15px;
+            background-color: white;
+        }
+        .in{
+            width: 50px;
+            text-align: center;
+            float:right;
+            color: black;;
+        }
+        .in:hover{
+            border-bottom: 1.5px solid #008B00;
+        }
+    </style>
+</head>
+<body>
+<div class="top_show">
+    <div style="float: left">
+        <button type="button"  class="btn">技术</button>
+        <button type="button"  class="btn">在线工具</button>
+    </div>
+    <div style="float: right">
+        <button type="button"  class="btn">登录</button>
+        <button type="button"  class="btn">开放注册</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="bar">
+        <img th:src="@{http://p9f10ih0f.bkt.clouddn.com/18-9-20/58126384.jpg}" class="img-circle avatar">
+        <span class="text">在线工具</span>
+    </div>
+</div>
+<div class="container">
+    <ul class="nav nav-tabs tab">
+        <li role="presentation" class="active" ><a style="color:#008B00" href="#">所有</a></li>
+        <li role="presentation" ><a style="color:#008B00" href="#">开发类</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">站长类</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">极客类</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">其他</a></li>
+        <li role="presentation"><a style="color:#008B00" href="#">HR</a></li>
+        <li role="presentation"><a style="color:#7B68EE" href="#">码农文库</a></li>
+        <li role="presentation"><a style="color:#FF4040" href="#">奇淫巧技</a></li>
+        <li role="presentation"><a style="color:#1E90FF" href="#">软件推荐</a></li>
+        <li role="presentation"><a href="#">网址导航</a></li>
+    </ul>
+</div>
+<div class="container" style="margin-top: 20px">
+    <div class="row">
+        <div th:each="information:${informationList}">
+            <div class="thumbnail" style="width: 260px;height: 160px;float: left;margin-left: 25px;">
+                <div style="border-bottom: 1px solid #CFCFCF">
+                    <img th:src="${information.avatar}" style="width: 70px;height: 70px;float: left">
+                    <div>
+                        <p th:text="${information.name}" style="padding-top: 10px;font-size: 18px;font-weight:bold;margin-left: 5px"></p>
+                        <div style=";margin-left: 5px">
+                            <img th:src="@{http://p9f10ih0f.bkt.clouddn.com/18-9-20/2295621.jpg}"><span>加入收藏</span>
+                            <p th:text="${information.kind}" style="float: right"></p>
+                        </div>
+                        <div style="padding-top: 10px"></div>
+                    </div>
+                </div>
+                <div>
+                    <p th:text="${information.introduce}" style="padding-top: 10px;float: left;font-size: 14px"></p>
+                    <p th:text="${information.url}" style="float: left;font-size: 15px;color: #CFCFCF"></p>
+                    <a th:href="@{/info/{informationId}(informationId=${information.id})}" class="in">进入</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

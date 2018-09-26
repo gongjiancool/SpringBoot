@@ -1,0 +1,232 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>少数派</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        body{
+            background-color: whitesmoke;
+        }
+        .avatar{
+            width: 50px;
+            height:50px;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        .avatar1{
+            width: 50px;
+            height:50px;
+            float: left;
+        }
+        .avatar-picture{
+            width: 200px;
+            height: 100px;
+        }
+        .bar{
+            background-color: black;
+            height:60px;
+            line-height:60px;
+            width:100%;
+            top:0;
+            text-align:center;
+        }
+        .title{
+            font-size: 20px;
+            /*padding-left: 5px;*/
+            color: white;;
+        }
+        .center{
+            font-size:30px;
+            color:white;
+        }
+        .btn{
+            margin-top: 12px;
+            width:90px;
+            height:30px;
+            border-radius: 15px;
+            color: white;
+            background-color:transparent;
+            border: 1px solid white;
+        }
+        .btn:hover {
+            background-color:white;
+            color: black;
+        }
+        .btn-right{
+            width:90px;
+            height:30px;
+            border-radius: 15px;
+            color: white;
+            background-color:transparent;
+            border: 1px solid white;
+            display:block;
+            margin:0 auto;
+            position: absolute;
+            left:140px;
+            top:130px;
+        }
+        .btn-right:hover {
+            background-color:white;
+            color: black;
+        }
+        .font{
+            margin-left: 20px;
+        }
+        .li{
+            width:130px;
+            text-align: center;
+        }
+        .down{
+            margin-top: 20px;
+            margin-left:20px;
+        }
+        .avatar{
+            width:45px;
+            height:45px;
+            float: left;
+        }
+        .font-right1{
+            font-weight:600;
+        }
+        .font-right2{
+           color: darkgray;
+            float: right;
+        }
+        .font2{
+            color: lightgray;
+        }
+        .font-total{
+            margin-left: 70px;
+        }
+        .total{
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .font-big{
+            margin-top: 10px;
+            font-size: 25px;
+            font-weight: 700;
+        }
+        .p-right{
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            position: absolute;
+            left:130px;
+            top:80px;
+        }
+        .gray {
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            filter: grayscale(50%);
+            margin:0.50rem 0rem 0.2rem 0rem;
+            border-radius:0.2rem;
+            margin-top: 20px;
+        }
+        .gray:hover{
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            filter: grayscale(100%);
+            margin:0.50rem 0rem 0.2rem 0rem;
+            border-radius:0.2rem;
+            margin-top: 20px;
+        }
+        .li{
+            font-weight: 600;
+            border: 0.5px solid lightgray;
+            background-color: white;
+            width:140px;
+            height:40px;
+            padding-top:10px;
+        }
+        .li:hover{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <img th:src="@{img/pai.jpg}" class="img-circle avatar">
+                <span class="title">少数派</span>
+            </div>
+            <div class="col-md-8">
+                <span class="center">#热门文章</span>
+            </div>
+            <div class="col-md-2">
+                <button type="button"  class="btn">登录</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div>
+    <div class="container">
+        <div class="font">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="li"><span href="#">正版软件</span></li>
+                <li role="presentation" class="li" ><span href="#">付费栏目</span></li>
+                <li role="presentation" class="li"><span href="#">Matrix</span></li>
+                <li role="presentation" class="li"><span href="#">专题广场</span></li>
+                <li role="presentation" class="li"><span href="#">热门文章</span></li>
+                <li role="presentation" class="li"><span href="#">应用推荐</span></li>
+                <li role="presentation" class="li"><span href="#">生活方式</span></li>
+                <li role="presentation" class="li"><span href="#">新玩意</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="down">
+        <div class="row">
+            <div class="col-md-8" >
+                <div th:each="information:${informationList}">
+                    <div class="thumbnail">
+                        <div class="total">
+                            <img th:src="@{'img/' + ${information.avatar}}" class="img-circle avatar1">
+                            <div class="font-total">
+                                <p class="font1" th:text="${information.name}"></p>
+                                <p class="font2" th:text="${information.time}"></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="font-big" th:text="${information.title}"></p>
+                                    <p th:text="${information.introduce}"></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <img th:src="@{'img/' + ${information.picture}}" class="avatar-picture">
+                                </div>
+                                <div style="margin-left: 590px;padding-top: 130px">
+                                    <img th:src="@{img/love.png}">
+                                    <span class="font2" th:text="${information.love}"></span>
+                                    <img th:src="@{img/number.png}">
+                                    <span class="font2" th:text="${information.number}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="font-right1">推荐专题</span>
+                <span class="font-right2">查看全部</span>
+                <div  th:each="topic:${topicList}" style="position: relative;">
+                    <img th:src="${topic.picture}"th:width="360" th:height="200" class="gray">
+                    <p th:text="${topic.name}" class="p-right"></p>
+                    <button class="btn-right">查看专题</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
