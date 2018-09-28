@@ -36,6 +36,6 @@ public class SysUserController {
 
     @GetMapping(value = "/like/{like}")
     public List<SysUser> sysUsers(@PathVariable String like){
-        return sysUserService.get(like);
+        return sysUserService.get("%"+like+"%");
     }
 }

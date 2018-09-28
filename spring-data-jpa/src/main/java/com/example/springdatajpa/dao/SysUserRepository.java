@@ -23,6 +23,7 @@ public interface SysUserRepository extends JpaRepository<SysUser,Integer> {
     @Query("from SysUser u where u.nickName = :nickName")
     SysUser findUser(@Param("nickName") String nickName);
 
-    @Query("from SysUser u where u.nickName like:name  order by u.fans desc")
+    @Query("from SysUser u where u.nickName like :name order by u.fans desc")
     List<SysUser> findUsers(@Param("name") String name);
+
 }

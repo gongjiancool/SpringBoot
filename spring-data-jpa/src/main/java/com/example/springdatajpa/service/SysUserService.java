@@ -11,10 +11,8 @@ import java.util.ListResourceBundle;
 public interface SysUserService {
     List<SysUser> getAll();
     SysUser getId(int id);
-
    SysUser getName(String nickName);
     List<SysUser> getNumber(String n);
-
     List<SysUser> get(String nickName);
 
  }
