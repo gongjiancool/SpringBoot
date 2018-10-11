@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>主界面</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        .avatar{
+            width: 70px;
+            height: 70px;
+        }
+        .tab{
+            margin-top: 10px;
+            background-color:WhiteSmoke;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs tab">
+            <li role="presentation" class="active" ><a style="color:#008B00" href="#">步数显示</a></li>
+            <li role="presentation" ><a style="color:#008B00" href="#">运动类</a></li>
+            <li role="presentation"><a style="color:#008B00" href="#">篮球类</a></li>
+            <li role="presentation"><a style="color:#008B00" href="#">足球类</a></li>
+            <li role="presentation"><a style="color:#008B00" href="#">排球类</a></li>
+            <li role="presentation"><a style="color:#008B00" href="#">好好学习</a></li>
+            <li role="presentation"><a style="color:#7B68EE" href="#">天天向上</a></li>
+            <li role="presentation"><a style="color:#FF4040" href="#">超越自我</a></li>
+            <li role="presentation"><a style="color:#1E90FF" href="#">勇敢向前</a></li>
+            <li role="presentation"><a href="#">追寻自我</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div style="padding-top: 50px">
+                    <h1>
+                        您今日的步数：
+                    </h1>
+                </div>
+                <p style="margin-left: 20px; margin-top:20px;font-size: 300px;color:blue;" th:text="${userStep.number}"></p>
+            </div>
+            <div class="col-md-4"  style="padding-top: 50px">
+                <h1 th:text="'欢迎您 ：' + ${sportUser.account}"></h1>
+                <div>
+                    <h style="font-size: 30px"> 头    像：</h>
+                    <img th:src="${sportUser.avatar}" class="img-circle avatar">
+                </div>
+                <div style="padding-top: 50px">
+                    <div class="thumbnail">
+                        <h1 style="color: #FF4040">今日排行</h1>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div style="margin-left: 20px">
+                                    <h4>用户姓名</h4>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div style="margin-left: 20px">
+                                    <h4>今日步数</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div th:each="step:${steps}">
+                                    <div style="margin-top: 30px">
+                                        <div class="col-md-6">
+                                            <div style="margin-left: 50px;">
+                                                <p th:text="${step.account}"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div style="margin-left: 50px">
+                                                <p th:text="${step.number}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+</body>
+</html>

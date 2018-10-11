@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            background: url(img/bg.jpg) bottom center no-repeat #efeff4 ;
+            background-size: 100% 100%;
+        }
+        form#login {
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            width: 400px;
+            margin: auto;
+            padding-top: 270px;
+        }
+        form#login tr td{
+            padding-top: 20px;
+        }
+
+        input#button{
+            width:90px;
+            height:30px;
+            color: white;
+            background-color:transparent;
+            border: 1px solid black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form action="/SportUser" method="post" id="login">
+        <table align="center">
+            <tr>
+                <td></td>
+                <td style="font-size: 30px;color: fuchsia">登录系统</td>
+            </tr>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" name="account" ></input></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="password" ></input></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" id="button" value="登 录"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
