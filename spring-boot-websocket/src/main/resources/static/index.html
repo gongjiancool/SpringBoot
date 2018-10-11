@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+    <style>
+        .showMessage{
+            font-size: 20px;
+            width: 300px;
+            height: 450px;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<h2>WebSocket练习</h2>
+<h1>信息展示区</h1>
+<textarea id="showMessage" class="showMessage"></textarea>
+<div>
+    <input id="input" type="text">
+    <button id="button" onclick="sendMessage()">发送</button>
+</div>
+
+<script>
+    var textarea = document.getElementById("showMessage");
+    var message = document.getElementById("input").value;
+    function sendMessage() {
+        socket.send( document.getElementById("input").value);
+    }
+    var socket;
+    if (typeof(WebSocket) == "undefined") {
+        console.log("您的浏览器不支持WebSocket");
+    } else {
+        console.log("您的浏览器支持WebSocket");
+        //实现化WebSocket对象，指定要连接的服务器地址与端口建立连接
+        socket = new WebSocket("ws://localhost:8080/websocket");
+
+        //打开事件
+        socket.onopen = function () {
+            console.log("Socket已打开");
+            // socket.send("这是来自客户端的消息:" + new Date());
+        };
+
+        //获得消息事件
+        socket.onmessage = function (msg) {
+            textarea.value = textarea.value + msg.data +"\r";
+            console.log(msg.data);
+            alert(msg.data);
+        };
+
+        //关闭事件
+        socket.onclose = function () {
+            console.log("Socket已关闭");
+        };
+
+        //发生了错误事件
+        socket.onerror = function () {
+            alert("Socket发生了错误");
+        }
+    }
+</script>
+</body>
+</html>

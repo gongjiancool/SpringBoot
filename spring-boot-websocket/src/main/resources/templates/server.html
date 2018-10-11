@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务器</title>
+    <style>
+        .textarea{
+            width: 200px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<form action="/socket/push" method="post">
+    <textarea id="textarea" class="textarea" name="text"></textarea>
+    <input type="submit" value="发送" id="button">
+</form>
+
+<script>
+    var text = document.getElementById("textarea").value;
+    var button = document.getElementById("button");
+</script>
+</body>
+</html>
